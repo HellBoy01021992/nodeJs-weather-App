@@ -1,10 +1,11 @@
-const path = require('path')
-const express = require('express')
-const hbs = require('hbs')
-const geocode = require('./utils/geocode')
-const forecast = require('./utils/forecast')
-const app = express()
+const path      = require('path')
+const express   = require('express')
+const hbs       = require('hbs')
+const geocode   = require('./utils/geocode')
+const forecast  = require('./utils/forecast')
 
+const app  = express()
+const port = process.env.PORT || 3000
 //Setup paths for Express config
 const publicDirectory = path.join(__dirname, '../public')
 const viewsPath = path.join(__dirname, '../templates/views')
@@ -103,7 +104,7 @@ app.get('*', (req, res) => {
     })
 })
 
-app.listen(3000, ()=>{
+app.listen(port, ()=>{
     console.log ('Server is up')
 })
 
