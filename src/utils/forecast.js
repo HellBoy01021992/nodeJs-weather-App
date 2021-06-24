@@ -13,8 +13,13 @@ const forecast = (latitude, longitude, callback)=>{
             }
             else
             {
+                const forecast = body.current.weather_descriptions[0]  
+                const temperature = "It is curently "+ body.current.temperature +" degree outside. But it feels like "+ body.current.feelslike + " degrees."
+                const humidity = "The humidity is "+body.current.humidity +"% ."
                 callback(undefined, {
-                    forecast: body.current.weather_descriptions[0] +". It is curently "+ body.current.temperature +" degree outside. But it feels like "+ body.current.feelslike + " degrees.",
+                    forecast: forecast,
+                    temperature: temperature,
+                    humidity: humidity,
                     icon : body.current.weather_icons[0]
                 })
             }
